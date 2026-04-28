@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Supabase 中文汉化插件
 // @namespace    https://github.com/RainLin10/supabase-chinese
-// @version      0.1.0
+// @version      0.1.1
 // @description  将 Supabase Dashboard 常见英文界面汉化为中文
 // @author       OpenVideoMaker
 // @match        https://supabase.com/dashboard*
@@ -24,6 +24,95 @@
    */
 
   const DICT = Object.freeze({
+
+    // ============================================================
+    // 补充：Database Settings / Advanced Disk / Create Table
+    // ============================================================
+    "Database Settings": "数据库设置",
+    "Connections, security, and network configuration": "连接、安全和网络配置",
+    "Database password": "数据库密码",
+    "Used for direct Postgres connections": "用于直连 Postgres 的密码",
+    "Reset database password": "重置数据库密码",
+    "Reset password": "重置密码",
+    "The database password isn’t viewable after creation. Resetting it will break any existing connections.": "数据库密码创建后无法查看。重置后，所有现有连接都将失效。",
+    "Connection pooling": "连接池",
+    "Connection poolers": "连接池服务",
+    "Configuration is shared across all connection poolers.": "该配置会在所有连接池服务之间共享。",
+    "Connection pool size": "连接池大小",
+    "The maximum number of connections made to the underlying Postgres cluster, per user+db combination. Pool size has a default of": "每个“用户 + 数据库”组合可连接到底层 Postgres 集群的最大连接数, 连接池大小默认为",
+    "based on your compute size of": " 根据当前规格计算",
+    "Max client connections": "最大客户端连接数",
+    "The maximum number of concurrent client connections allowed. This value is fixed at": "允许的最大并发客户端连接数: ",
+    "based on your compute size of": " 根据当前规格计算",
+    "and cannot be changed.": "无法更改",
+    "SSL configuration": "SSL 配置",
+    "Enforce SSL on incoming connections": "强制传入连接使用 SSL",
+    "Reject non-SSL connections to your database": "拒绝连接到数据库的非 SSL 连接",
+    "SSL Certificate": "SSL 证书",
+    "Use this certificate when connecting to your database to prevent snooping and man-in-the-middle attacks.": "连接数据库时使用此证书，以防止窃听和中间人攻击。",
+    "Download certificate": "下载证书",
+    "Disk management": "磁盘管理",
+    "Disk Management has moved": "磁盘管理已迁移",
+    "Disk configuration is now managed alongside Project Compute on the new Compute and Disk page.": "磁盘配置现在已迁移到新的“计算与磁盘”页面，并与项目计算配置一起管理。",
+    "Go to Compute and Disk": "前往计算与磁盘",
+    "Network restrictions": "网络访问限制",
+    "Add restriction": "添加限制",
+    "Your database can be accessed by all IP addresses": "当前所有 IP 地址都可以访问你的数据库",
+    "You may start limiting access to your database by adding a network restriction.": "你可以通过添加网络限制来开始限制数据库访问。",
+    "Restrict all access": "限制所有访问",
+    "Network bans": "网络封禁",
+    "IP addresses temporarily blocked due to suspicious traffic": "因可疑流量而被临时封禁的 IP 地址",
+    "There are no banned IP addresses for your project": "你的项目目前没有被封禁的 IP 地址",
+
+    "Autoscale growth percent": "自动扩容增长百分比",
+    "Percentage of current disk size to grow": "按当前磁盘大小增长的百分比",
+    "This amounts to 1 GB based on the current disk size of 2 GB": "根据当前 2 GB 的磁盘大小，这相当于增加 1 GB。",
+    "Minimum increment": "最小增量",
+    "Minimum value to autoscale disk size by": "磁盘自动扩容的最小增量",
+    "Maximum disk size": "最大磁盘大小",
+    "Maximum size that the disk can grow to": "磁盘可扩展到的最大大小",
+    "Disk size will automatically be expanded by 6 GB to a total of 8 GB when the database reaches 90% of the disk size": "当数据库使用量达到磁盘大小的 90% 时，磁盘会自动扩容 6 GB，总容量变为 8 GB。",
+    "Adjusting disk configuration requires LARGE Compute size or above": "调整磁盘配置需要 LARGE 或更高计算规格",
+    "Increase your compute size to adjust your disk's storage type, IOPS, and throughput": "请提升计算规格后再调整磁盘的存储类型、IOPS 和吞吐量。",
+    "Change to LARGE Compute": "切换到 LARGE 计算规格",
+    "Storage type": "存储类型",
+    "General Purpose SSD": "通用型 SSD",
+    "Balance between price and performance": "在价格和性能之间取得平衡",
+    "IOPS": "IOPS",
+    "Input/output operations per second.": "每秒输入/输出操作次数。",
+    "Use higher IOPS for high-throughput apps.": "高吞吐应用建议使用更高 IOPS。",
+    "Throughput": "吞吐量",
+    "Amount of data read/written per second.": "每秒读取/写入的数据量。",
+    "Higher throughput suits applications with high data transfer needs.": "更高吞吐量适合有大量数据传输需求的应用。",
+
+    "Create a new table under": "在以下架构下创建新表",
+    "Optional": "可选",
+    "Enable Row Level Security (RLS)": "启用行级安全（RLS）",
+    "RECOMMENDED": "推荐",
+    "Recommended": "推荐",
+    "Restrict access to your table by enabling RLS and writing Postgres policies.": "启用 RLS 并编写 Postgres 策略，以限制对表的访问。",
+    "Policies are required to query data": "查询数据需要策略",
+    "You need to create an access policy before you can query data from this table. Without a policy, querying this table will return an": "你需要先创建访问策略，才能从此表查询数据。如果没有策略，查询此表会返回",
+    "array of results. You can create policies after saving this table.": "结果。保存表后可以继续创建策略。",
+  
+    "empty array": "空数组",
+    "Enable Realtime": "启用实时功能",
+    "Broadcast changes on this table to authorized subscribers.": "将此表的变更广播给已授权的订阅者。",
+    "Default Value": "默认值",
+    "Primary": "主键",
+    "About data types": "关于数据类型",
+    "Import data from CSV": "从 CSV 导入数据",
+    "Add column": "添加列",
+    "Foreign keys": "外键",
+    "Add foreign key relation": "添加外键关系",
+    "Data API Access": "Data API 访问",
+    "Allow this table to be queried via Supabase client libraries or the API directly": "允许通过 Supabase 客户端库或 API 直接查询此表。",
+    "The \"public\" schema is not exposed via the Data API": "\"public\" 架构尚未通过 Data API 暴露",
+    "To enable API access for this table, you need to first expose the": "要为此表启用 API 访问，你需要先在",
+    "schema in your":" 暴露架构在你的",
+    "API settings": "API 设置中",
+
+
     // ============================================================
     // 通用：基础词、按钮、状态、表头
     // ============================================================
@@ -1129,7 +1218,7 @@
     "Provide a string": "请输入字符串",
     "e.g. 2h, 30m, 7d": "例如：2h、30m、7d",
     "e.g CLIENT_KEY": "例如：CLIENT_KEY",
-    "Search for a secret": "搜索密钥"
+    "Search for a secret": "搜索密钥",
   });
 
   const REGEX_RULES = [
@@ -1177,10 +1266,18 @@
     ".monaco-editor",
     ".cm-editor",
     ".cm-content",
+    ".CodeMirror",
+    "textarea",
+    "pre",
+    "code",
+    "kbd",
+    "samp",
     "[contenteditable='true']",
-    "[data-testid*='editor']",
-    "[class*='monaco']",
-    "[class*='CodeMirror']"
+    "[role='textbox']",
+    "[aria-label='SQL editor']",
+    "[data-testid='sql-editor']",
+    "[data-testid='monaco-editor']",
+    "[data-testid='code-editor']",
   ].join(",");
 
   function normalizeText(text) {
